@@ -1,17 +1,17 @@
 <template>
-    <div class="message">
-              <input
-                      type="text"
-                      :value="inputText"
-                      @input="e => handleInput(e)"
-                      placeholder="メッセージを入力"
-              >
-            <button type="button" @click="send">
-                送信
-            </button>
+    <div id="chat-input">
+        <input id="chat-input-message"
+                     type="text"
+                     :value="inputText"
+                     @input="e => handleInput(e)"
+                     @keyup.enter="send"
+                     placeholder="メッセージを入力"
+        >
+        <v-ons-button id="chat-input-btn" type="button" @click="send">
+            送信
+        </v-ons-button>
     </div>
 </template>
-
 <script>
     import store from "../store";
 

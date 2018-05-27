@@ -1,0 +1,87 @@
+#chat-input {
+    background-color:#fff;
+    height: 48px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#chat-input-message{
+    width: calc(100% - 75px);
+    line-height: 16px;
+    height: 48px;
+    padding: 14px 6px 0px 6px;
+    text-align: left;
+    box-sizing: border-box;
+
+}
+
+#chat-input-btn {
+    width: 72px;
+    height: 48px;
+    padding: 14px 0;
+    line-height: 16px;
+    float: right;
+    font-weight: bold;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.chat-talk {
+    margin: 0px;
+    padding: 0 14px;
+    font-size: 16px;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.chat-left {
+    float: left;
+    line-height: 1.3em;
+}
+
+.chat-right {
+    float: right;
+    line-height: 1.3em;
+}
+
+.chat-position-clear {
+    clear: both;
+}
+
+.talk-name {
+    margin-top: 20px;
+    font-size: 0.5em;
+}
+
+.chat-left .talk-name {
+    float: left;
+}
+
+.chat-right .talk-name {
+    float: right;
+}
+
+.message-box {
+    max-width: 100%;
+}
+
+.message-text {
+    padding: 20px;
+}
+
+.chat-left .message-box {
+    color: #333;
+    background: #fff;
+    border: 2px solid #0076ff;
+    border-radius: 30px 30px 30px 0px;
+    margin-right: 50px;
+}
+
+.chat-right .message-box {
+    color: #fff;
+    background: #0076ff;
+    border: 2px solid #0076ff;
+    border-radius: 30px 30px 0px 30px;
+    margin-left: 50px;
+}

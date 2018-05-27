@@ -1,36 +1,58 @@
 <template>
-    <div>
-        <Talk
-                :timeline="state.timeline"
-                :user-id="state.userId"
+    <v-ons-page>
+        <v-ons-toolbar>
+            <div class="center">SimpleChat</div>
+        </v-ons-toolbar>
+
+        <v-ons-tabbar
+                swipeable
+                position="top"
+                :tabs="tabs"
+                :on-swipe="onSwipe"
         />
-        <Message
-                :user-id="state.userId"
-                :input-text="state.inputText"
-        />
-    </div>
+    </v-ons-page>
 </template>
 <script>
-    import Message from "./Message";
-    import Talk from "./Talk";
-    import store from "../store";
+    import Main from "./Main";
+    import Chat from "./Chat";
+
+    const red = [244, 67, 54];
+    const blue = [30, 136, 229];
+    const lerp = (x0, x1, t) => parseInt((1 - t) * x0 + t * x1, 10);
 
     export default {
-        components: {Talk, Message},
+        components: {Main, Chat},
         data() {
             return {
-                state: store.state
+                // tab-bar
+                colors: red,
+                animationOptions: {},
+                tabs: [
+                    {
+                        page: Main,
+                        label: 'Home',
+                        theme: red
+                    },
+                    {
+                        page: Chat,
+                        label: 'Chat',
+                        theme: blue
+                    }
+                ]
             };
         },
-        mounted() {
-            this.connectChannel();
-        },
         methods: {
-            connectChannel() {
-                Echo.channel("simple-chat-channel").listen("MessagePostEvent", e => {
-                    store.receiveMessage(e.messages);
-                });
+            onSwipe(index, animationOptions) {
+                this.animationOptions = animationOptions;
+                const a = Math.floor(index), b = Math.ceil(index), ratio = index % 1;
+                this.colors = this.colors.map((c, i) => lerp(this.tabs[a].theme[i], this.tabs[b].theme[i], ratio));
             }
+        }
+    };
+</script>
+
+
+}
         }
     };
 </script>
