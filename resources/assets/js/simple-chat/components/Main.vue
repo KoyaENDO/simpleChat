@@ -1,6 +1,8 @@
 <template>
     <v-ons-page>
-        hello
+        <p style="text-align: center">
+            Welcome SimpleChat.
+        </p>
     </v-ons-page>
 </template>
 <script>
