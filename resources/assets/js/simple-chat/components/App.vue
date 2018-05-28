@@ -6,6 +6,7 @@
 
         <v-ons-tabbar
                 swipeable
+                tab-border
                 position="top"
                 :tabs="tabs"
                 :on-swipe="onSwipe"
